@@ -14,9 +14,9 @@
 
     <v-divider />
 
-    <v-tabs-window v-model="selectedTab" class="mt-4">
+    <v-tabs-window v-model="selectedTab">
       <v-tabs-window-item v-for="game in games" :key="game.name" :value="game.name">
-        <v-card class="pa-4">
+        <v-card class="pa-2">
           <v-card-title class="d-flex justify-space-between align-center">
             <span class="font-weight-bold text-primary">
               {{ game.name }} — Estatísticas
@@ -37,7 +37,7 @@
           </v-card-title>
 
           <v-card-text>
-            <v-row class="mb-4">
+            <v-row>
               <v-col cols="12">
                 <v-chip-group v-model="chartTypeModel" mandatory>
                   <v-chip
