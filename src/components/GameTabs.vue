@@ -23,7 +23,7 @@
             </span>
 
             <v-card
-              class="metric-card d-flex align-center justify-center"
+              class="metric-card d-flex align-center justify-center mobile-hidden"
               elevation="2"
             >
               <v-icon color="primary" size="22" class="mr-2">mdi-account-group</v-icon>
@@ -473,5 +473,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Ocultar card de métrica em dispositivos móveis */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
 }
 </style>
