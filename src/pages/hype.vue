@@ -1,53 +1,52 @@
 <template>
-  <v-container fluid class="hype-page">
-    <v-row>
-      <v-col cols="12">
-        <div class="page-header">
-          <v-icon size="48" color="error" class="header-icon">mdi-fire</v-icon>
-          <div>
+  <v-container class="outer-container" fluid>
+    <div class="container">
+      <v-card class="hero-card mb-6" elevation="16">
+        <v-card-text class="hero-content">
+          <div class="hero-text text-center">
+            <v-icon size="48" color="white" class="mb-3">mdi-fire</v-icon>
             <h1 class="text-h3 font-weight-bold mb-2">Análise de Hype dos Games</h1>
-            <p class="text-subtitle-1 text-grey">Medindo a intensidade e duração do engajamento</p>
+            <p class="text-subtitle-1">Medindo a intensidade e duração do engajamento</p>
           </div>
-        </div>
-      </v-col>
-    </v-row>
+        </v-card-text>
+      </v-card>
 
-    <v-row class="mb-4">
-      <v-col cols="12" md="4">
-        <v-card class="stat-card gradient-red" dark elevation="12">
-          <v-card-text>
-            <div class="d-flex align-center justify-space-between">
-              <div>
-                <p class="text-overline mb-1">🔥 Hype Extremo</p>
-                <h2 class="text-h4 font-weight-bold">{{ extremeHypeGames.length }}</h2>
-                <p class="text-caption">Jogos com +1M de pico</p>
+      <v-row class="mb-4">
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="stat-card gradient-red" dark elevation="12">
+            <v-card-text class="pa-4">
+              <div class="d-flex align-center justify-space-between">
+                <div>
+                  <p class="text-overline mb-1">🔥 Hype Extremo</p>
+                  <h2 class="text-h5 font-weight-bold">{{ extremeHypeGames.length }}</h2>
+                  <p class="text-caption">Jogos com +1M de pico</p>
+                </div>
+                <v-icon size="48" color="white" class="pulse-animation">mdi-fire</v-icon>
               </div>
-              <v-icon size="64" color="white" class="pulse-animation">mdi-fire</v-icon>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
+            </v-card-text>
+          </v-card>
+        </v-col>
 
-      <v-col cols="12" md="4">
-        <v-card class="stat-card gradient-orange" dark elevation="12">
-          <v-card-text>
-            <div class="d-flex align-center justify-space-between">
-              <div>
-                <p class="text-overline mb-1">⚡ Hype Sustentável</p>
-                <h2 class="text-h4 font-weight-bold">{{ sustainableHypeGames.length }}</h2>
-                <p class="text-caption">Mantém 50%+ por 2+ meses</p>
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="stat-card gradient-orange" dark elevation="12">
+            <v-card-text class="pa-4">
+              <div class="d-flex align-center justify-space-between">
+                <div>
+                  <p class="text-overline mb-1">⚡ Hype Sustentável</p>
+                  <h2 class="text-h5 font-weight-bold">{{ sustainableHypeGames.length }}</h2>
+                  <p class="text-caption">Mantém 50%+ por 2+ meses</p>
+                </div>
+                <v-icon size="48" color="white">mdi-trending-up</v-icon>
               </div>
-              <v-icon size="64" color="white">mdi-trending-up</v-icon>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
+            </v-card-text>
+          </v-card>
+        </v-col>
 
-      <v-col cols="12" md="4">
-        <v-card class="stat-card gradient-purple" dark elevation="12">
-          <v-card-text>
-            <div class="d-flex align-center justify-space-between">
-              <div>
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="stat-card gradient-purple" dark elevation="12">
+            <v-card-text class="pa-4">
+              <div class="d-flex align-center justify-space-between">
+                <div>
                 <p class="text-overline mb-1">🎯 Média de Duração</p>
                 <h2 class="text-h4 font-weight-bold">{{ avgDuration.toFixed(1) }}</h2>
                 <p class="text-caption">Meses sustentando hype</p>
@@ -222,6 +221,7 @@
         </v-card>
       </v-col>
     </v-row>
+    </div>
   </v-container>
 </template>
 
@@ -477,26 +477,53 @@
 </script>
 
 <style scoped>
-  .hype-page {
-    background: linear-gradient(135deg, #ffffff 0%, #2196f3 100%);
-    min-height: 100vh;
-    padding: 24px;
-  }
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
 
-  .page-header {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding: 24px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  }
+.outer-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0;
+  min-height: 100vh;
+}
 
-  .header-icon {
-    animation: pulse 1.5s infinite;
-  }
+.hero-card {
+  background: linear-gradient(135deg, #f44336 0%, #ff9800 100%);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text p {
+  color: rgba(255, 255, 255, 0.9);
+}
 
   @keyframes pulse {
     0%, 100% {

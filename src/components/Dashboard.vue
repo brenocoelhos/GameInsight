@@ -1,10 +1,10 @@
 <template>
   <v-container class="outer-container" fluid>
     <div class="container">
-      <v-card class="hero-card mb-6" elevation="16">
+      <v-card class="hero-card mb-6 fade-in" elevation="16">
         <v-card-text class="hero-content flex flex-md-row justify-center align-center">
           <div class="hero-text">
-            <h1 class="text-h3 font-weight-bold mb-2">🎮 O CICLO DE VIDA DOS JOGOS</h1>
+            <h1 class="hero-title font-weight-bold mb-2">🎮 O CICLO DE VIDA DOS JOGOS</h1>
           </div>
         </v-card-text>
       </v-card>
@@ -12,14 +12,14 @@
       <v-row class="mb-4">
         <v-col cols="12" md="6">
           <v-card
-            class="quick-card gradient-blue"
+            class="quick-card gradient-blue fade-in"
             elevation="12"
             dark
             @click="$router.push('/peaks')"
           >
             <v-card-text class="text-center">
-              <v-icon size="64" class="mb-3" style="color: aliceblue;">mdi-rocket-launch</v-icon>
-              <h3 class="text-h5 font-weight-bold mb-2" style="color: aliceblue;">Análise de Picos</h3>
+              <v-icon class="quick-icon mb-3" style="color: aliceblue;">mdi-rocket-launch</v-icon>
+              <h3 class="quick-title font-weight-bold mb-2" style="color: aliceblue;">Análise de Picos</h3>
               <p class="text-body-2" style="color: aliceblue;">Descubra os maiores momentos dos games</p>
             </v-card-text>
           </v-card>
@@ -27,14 +27,14 @@
 
         <v-col cols="12" md="6">
           <v-card
-            class="quick-card gradient-orange"
+            class="quick-card gradient-orange fade-in"
             elevation="12"
             dark
             @click="$router.push('/hype')"
           >
             <v-card-text class="text-center">
-              <v-icon size="64" class="mb-3" style="color: aliceblue;">mdi-fire</v-icon>
-              <h3 class="text-h5 font-weight-bold mb-2" style="color: aliceblue;">Análise de Hype</h3>
+              <v-icon class="quick-icon mb-3" style="color: aliceblue;">mdi-fire</v-icon>
+              <h3 class="quick-title font-weight-bold mb-2" style="color: aliceblue;">Análise de Hype</h3>
               <p class="text-body-2" style="color: aliceblue;">Intensidade e duração do engajamento</p>
             </v-card-text>
           </v-card>
@@ -43,33 +43,41 @@
 
       <v-row>
         <v-col cols="12">
-          <StatsCards :stats="stats" />
+          <div class="fade-in">
+            <StatsCards :stats="stats" />
+          </div>
         </v-col>
       </v-row>
 
       <v-row>
         <v-col cols="12" md="6">
-          <PieChartCard
-            title="Distribuição de Jogadores por Categoria"
-            :chart-option="pieChartOption"
-          />
+          <div class="fade-in">
+            <PieChartCard
+              title="Distribuição de Jogadores por Categoria"
+              :chart-option="pieChartOption"
+            />
+          </div>
         </v-col>
 
         <v-col cols="12" md="6">
-          <BarChartCard
-            title="Top 10 Jogos por Média de Jogadores"
-            :chart-option="barChartOption"
-          />
+          <div class="fade-in">
+            <BarChartCard
+              title="Top 10 Jogos por Média de Jogadores"
+              :chart-option="barChartOption"
+            />
+          </div>
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="12">
-          <GameTabs
-            :games="topGames"
-            :game-data="gameData"
-            :format-game-name="formatGameName"
-            :format-date="formatDate"
-          />
+          <div class="fade-in">
+            <GameTabs
+              :games="topGames"
+              :game-data="gameData"
+              :format-game-name="formatGameName"
+              :format-date="formatDate"
+            />
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -77,7 +85,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, onMounted } from 'vue'
+  import { ref, computed, onMounted } from 'vue'
   import { useGameData } from '@/composables/useGameData'
   import BarChartCard from './BarChartCard.vue'
   import GameTabs from './GameTabs.vue'
@@ -305,5 +313,85 @@
   font-size: 1.75rem;
   margin: 0;
   padding: 8px 0;
+}
+
+/* Animação simples de fade-in no scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+.fade-in:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos responsivos para mobile */
+.hero-title {
+  font-size: 1.75rem; /* text-h4 */
+}
+
+.quick-icon {
+  font-size: 48px;
+}
+
+.quick-title {
+  font-size: 1.25rem; /* text-h6 */
+}
+
+/* Media queries para melhor responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem; /* text-h5 */
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .hero-content {
+    padding: 32px 20px;
+  }
+  
+  .quick-icon {
+    font-size: 40px;
+  }
+  
+  .quick-title {
+    font-size: 1.1rem;
+  }
+  
+  .quick-card {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.3rem; /* Ainda menor para telas muito pequenas */
+  }
+  
+  .hero-content {
+    padding: 20px 16px;
+  }
+  
+  .quick-icon {
+    font-size: 36px;
+  }
+  
+  .container {
+    padding: 12px;
+  }
 }
 </style>

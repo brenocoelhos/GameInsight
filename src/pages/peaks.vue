@@ -1,68 +1,68 @@
 <template>
-  <v-container fluid class="peaks-page">
-    <v-row>
-      <v-col cols="12">
-        <div class="page-header">
-          <v-icon size="48" color="primary" class="header-icon">mdi-rocket-launch</v-icon>
-          <div>
+  <v-container class="outer-container" fluid>
+    <div class="container">
+      <v-card class="hero-card mb-6" elevation="16">
+        <v-card-text class="hero-content">
+          <div class="hero-text text-center">
+            <v-icon size="48" color="white" class="mb-3">mdi-rocket-launch</v-icon>
             <h1 class="text-h3 font-weight-bold mb-2">Análise de Picos de Jogadores</h1>
-            <p class="text-subtitle-1 text-grey">Descobrindo os maiores momentos da história dos games</p>
+            <p class="text-subtitle-1">Descobrindo os maiores momentos da história dos games</p>
           </div>
-        </div>
-      </v-col>
-    </v-row>
-    <v-row class="mb-4">
-      <v-col cols="12" md="4">
-        <v-card class="stat-card" elevation="8">
-          <v-card-text>
-            <div class="d-flex align-center justify-space-between">
-              <div>
-                <p class="text-overline mb-1">Maior Pico</p>
-                <h2 class="text-h4 font-weight-bold primary--text">{{ formatNumber(maxPico) }}</h2>
-                <p class="text-caption">{{ gameWithMaxPico }}</p>
-              </div>
-              <v-avatar color="primary" size="56">
-                <v-icon size="32" color="white">mdi-trophy</v-icon>
-              </v-avatar>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
+        </v-card-text>
+      </v-card>
 
-      <v-col cols="12" md="4">
-        <v-card class="stat-card" elevation="8">
-          <v-card-text>
-            <div class="d-flex align-center justify-space-between">
-              <div>
-                <p class="text-overline mb-1">Total de Jogos</p>
-                <h2 class="text-h4 font-weight-bold success--text">{{ picosData.length }}</h2>
-                <p class="text-caption">Analisados</p>
+      <v-row class="mb-4">
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="stat-card" elevation="8">
+            <v-card-text class="pa-4">
+              <div class="d-flex align-center justify-space-between">
+                <div>
+                  <p class="text-overline mb-1">Maior Pico</p>
+                  <h2 class="text-h5 font-weight-bold primary--text">{{ formatNumber(maxPico) }}</h2>
+                  <p class="text-caption">{{ gameWithMaxPico }}</p>
+                </div>
+                <v-avatar color="primary" size="48">
+                  <v-icon size="24" color="white">mdi-trophy</v-icon>
+                </v-avatar>
               </div>
-              <v-avatar color="success" size="56">
-                <v-icon size="32" color="white">mdi-gamepad-variant</v-icon>
-              </v-avatar>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
+            </v-card-text>
+          </v-card>
+        </v-col>
 
-      <v-col cols="12" md="4">
-        <v-card class="stat-card" elevation="8">
-          <v-card-text>
-            <div class="d-flex align-center justify-space-between">
-              <div>
-                <p class="text-overline mb-1">Período</p>
-                <h2 class="text-h4 font-weight-bold warning--text">{{ yearRange }}</h2>
-                <p class="text-caption">Anos de dados</p>
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="stat-card" elevation="8">
+            <v-card-text class="pa-4">
+              <div class="d-flex align-center justify-space-between">
+                <div>
+                  <p class="text-overline mb-1">Total de Jogos</p>
+                  <h2 class="text-h5 font-weight-bold success--text">{{ picosData.length }}</h2>
+                  <p class="text-caption">Analisados</p>
+                </div>
+                <v-avatar color="success" size="48">
+                  <v-icon size="24" color="white">mdi-gamepad-variant</v-icon>
+                </v-avatar>
               </div>
-              <v-avatar color="warning" size="56">
-                <v-icon size="32" color="white">mdi-calendar-range</v-icon>
-              </v-avatar>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+            </v-card-text>
+          </v-card>
+        </v-col>
+
+        <v-col cols="12" sm="6" md="4">
+          <v-card class="stat-card" elevation="8">
+            <v-card-text class="pa-4">
+              <div class="d-flex align-center justify-space-between">
+                <div>
+                  <p class="text-overline mb-1">Período</p>
+                  <h2 class="text-h5 font-weight-bold warning--text">{{ yearRange }}</h2>
+                  <p class="text-caption">Anos de dados</p>
+                </div>
+                <v-avatar color="warning" size="48">
+                  <v-icon size="24" color="white">mdi-calendar-range</v-icon>
+                </v-avatar>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
 
     <v-row>
       <v-col cols="12">
@@ -129,6 +129,7 @@
         </v-card>
       </v-col>
     </v-row>
+    </div>
   </v-container>
 </template>
 
@@ -324,55 +325,73 @@
 </script>
 
 <style scoped>
-  .peaks-page {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-    padding: 24px;
-  }
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
 
-  .page-header {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding: 24px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  }
+.outer-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0;
+  min-height: 100vh;
+}
 
-  .header-icon {
-    animation: bounce 2s infinite;
-  }
+.hero-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
 
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
 
-  .stat-card {
-    background: white;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 32px;
+  position: relative;
+  z-index: 1;
+}
 
-  .stat-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
-  }
+.hero-text h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  .chart-card {
-    background: white;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-  }
+.hero-text p {
+  color: rgba(255, 255, 255, 0.9);
+}
 
-  .chart-card:hover {
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
-  }
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
+}
 </style>
