@@ -1,5 +1,6 @@
 import Papa from 'papaparse'
 import { ref } from 'vue'
+import { formatMonthYear } from '@/utils/formatters'
 
 export interface GameData {
   Categoria: string
@@ -34,26 +35,6 @@ export function useGameData () {
   })
   const topGames = ref<Game[]>([])
   const isLoading = ref(true)
-
-  // Função para formatar datas de forma mais legível
-  function formatDate (mes: string, ano: string): string {
-    const monthAbbr: Record<string, string> = {
-      January: 'Jan',
-      February: 'Fev',
-      March: 'Mar',
-      April: 'Abr',
-      May: 'Mai',
-      June: 'Jun',
-      July: 'Jul',
-      August: 'Ago',
-      September: 'Set',
-      October: 'Out',
-      November: 'Nov',
-      December: 'Dez',
-    }
-    const month = monthAbbr[mes] || mes.slice(0, 3)
-    return `${month}/${ano}`
-  }
 
   function formatGameName (gameName: string): string {
     if (!gameName) {
@@ -184,6 +165,6 @@ export function useGameData () {
     isLoading,
     loadData,
     formatGameName,
-    formatDate,
+    formatDate: formatMonthYear,
   }
 }

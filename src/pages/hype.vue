@@ -264,7 +264,8 @@
   })
 
   const extremeHypeGames = computed(() => {
-    return hypeData.value.filter(g => g.Pico_Valor >= 1_000_000)
+    // Dados vêm em milhares, então 1_000 = 1 milhão de jogadores
+    return hypeData.value.filter(g => g.Pico_Valor >= 1_000)
   })
 
   const sustainableHypeGames = computed(() => {

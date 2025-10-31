@@ -397,31 +397,6 @@
   background-color: #ffffff;
 }
 
-.v-tab.game-tab {
-  text-transform: none;
-  font-weight: 600;
-  color: #555;
-  transition: all 0.3s ease;
-  min-width: 160px;
-}
-
-.v-tab.game-tab:hover {
-  color: #1976d2;
-  background-color: #e3f2fd;
-  border-radius: 8px;
-}
-
-.v-tab.v-tab--selected {
-  color: #fff !important;
-  background-color: #1976d2 !important;
-  border-radius: 8px;
-  font-weight: 700;
-}
-.tab-container {
-  border-radius: 12px;
-  background-color: #ffffff;
-}
-
 /* ====== TABS BONITOS ====== */
 .v-tab.game-tab {
   text-transform: none;
@@ -472,16 +447,18 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .v-card-title {
   font-size: 1.25rem;
   font-weight: 700;
 }
+
 .metric-card {
   border-radius: 10px;
   background-color: #f5f8ff;
   transition: all 0.3s ease;
   min-width: 180px;
-  height: 70px; /* define altura fixa */
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -497,5 +474,4 @@
   align-items: center;
   justify-content: center;
 }
-
 </style>

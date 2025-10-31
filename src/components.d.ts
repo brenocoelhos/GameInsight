@@ -13,7 +13,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppHeader: typeof import('./components/AppHeader.vue')['default']
     BarChartCard: typeof import('./components/BarChartCard.vue')['default']
-    ChartWrapper: typeof import('./components/ChartWrapper.vue')['default']
     Dashboard: typeof import('./components/Dashboard.vue')['default']
     GameTabs: typeof import('./components/GameTabs.vue')['default']
     PieChartCard: typeof import('./components/PieChartCard.vue')['default']

@@ -85,4 +85,24 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separar Vue e suas bibliotecas principais
+          'vue-vendor': ['vue', 'vue-router', 'pinia'],
+
+          // Separar Vuetify em seu próprio chunk
+          'vuetify': ['vuetify'],
+
+          // Separar ECharts em seu próprio chunk (biblioteca pesada)
+          'echarts': ['echarts', 'vue-echarts', 'echarts/core', 'echarts/charts', 'echarts/components', 'echarts/renderers'],
+
+          // Separar utilitários
+          'utils': ['papaparse'],
+        },
+      },
+    },
+  },
 })
