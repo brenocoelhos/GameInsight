@@ -24,7 +24,7 @@ export function useAdvancedData () {
   async function loadPicosData () {
     try {
       isLoading.value = true
-      const response = await fetch('/src/assets/picos_jogos.csv')
+      const response = await fetch('/picos_jogos.csv')
       const csvText = await response.text()
       Papa.parse(csvText, {
         header: true,
@@ -47,7 +47,7 @@ export function useAdvancedData () {
   async function loadHypeData () {
     try {
       isLoading.value = true
-      const response = await fetch('/src/assets/hype_estimado.csv')
+      const response = await fetch('/hype_estimado.csv')
       const csvText = await response.text()
 
       Papa.parse(csvText, {

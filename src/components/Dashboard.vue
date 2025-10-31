@@ -2,20 +2,10 @@
   <v-container class="outer-container" fluid>
     <div class="container">
       <v-card class="hero-card mb-6" elevation="16">
-        <v-card-text class="hero-content">
+        <v-card-text class="hero-content flex flex-md-row justify-center align-center">
           <div class="hero-text">
             <h1 class="text-h3 font-weight-bold mb-2">🎮 O CICLO DE VIDA DOS JOGOS</h1>
-            <p class="text-h6">Análise completa de dados da Steam</p>
           </div>
-          <v-btn
-            color="primary"
-            size="large"
-            prepend-icon="mdi-rocket-launch"
-            @click="$router.push('/peaks')"
-            class="hero-button"
-          >
-            Ver Análises Avançadas
-          </v-btn>
         </v-card-text>
       </v-card>
 

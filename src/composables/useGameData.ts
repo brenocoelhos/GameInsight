@@ -136,7 +136,7 @@ export function useGameData () {
 
   function loadData () {
     isLoading.value = true
-    fetch('/src/assets/dados_steam_limpos (1).csv')
+    fetch('/dados_steam_limpos (1).csv')
       .then(response => response.text())
       .then(csvText => {
         Papa.parse<GameData>(csvText, {
